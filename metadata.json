@@ -1,0 +1,8 @@
+{
+  "name": "SignalLoop",
+  "description": "A circular fan monetisation engine that turns creator identity into predictable, compounding monthly revenue through tiered memberships and exclusive experience drops.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}
