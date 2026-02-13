@@ -9,11 +9,11 @@ Now it moves in communities.
 
 We built SignalLoop because the creator economy is still built on unstable income, disposable content, and algorithms that decide who gets seen and who gets paid.
 
-Creators pour identity, creativity, and emotional labour into their work — but most platforms only reward volume and virality. We believe creators deserve something better: ownership of their audience economy.
+Creators pour identity, creativity, and emotional labour into their work — but most platforms only reward volume and virality. We believe creators deserve something better: a circular economy where value compounds through resale, upgrades, and ongoing access.
 
 ## Our Mission
 
-To help creators turn identity, influence, and audience loyalty into predictable, compounding revenue — without sacrificing authenticity or creative freedom.
+To help creators build circular economies where identity, influence, and audience loyalty turn into predictable, compounding revenue through resale, upgrades, and ongoing value — without sacrificing authenticity or creative freedom.
 
 ## What We Believe
 
@@ -24,11 +24,11 @@ The strongest creator businesses aren't built on content volume. They're built o
 The next generation of audiences wants access, status, and participation — not just passive consumption.
 
 ### The future is circular
-Value shouldn't disappear after a post, stream, or launch. It should compound over time for creators and their communities.
+Value shouldn't disappear after a post, stream, or launch. In a circular economy, value compounds through resale, upgrades, and secondary markets — creating ongoing revenue for creators and their communities.
 
 ## What We Do
 
-SignalLoop gives creators the infrastructure to build their own fan economy.
+SignalLoop gives creators the infrastructure to build their own circular fan economy — where value compounds through resale, upgrades, and secondary markets.
 
 - **Identity-based membership tiers**
 - **Premium experience drops**
@@ -37,15 +37,15 @@ SignalLoop gives creators the infrastructure to build their own fan economy.
 
 ## Who We Build For
 
-We build for creators who already have an audience — and want to turn it into something sustainable. Creators who want predictable monthly income, deeper fan relationships, and ownership of their brand economy.
+We build for creators who already have an audience — and want to turn it into a circular economy. Creators who want predictable monthly income, deeper fan relationships, and ownership of their brand economy through resale, upgrades, and ongoing value.
 
 ## Why Now
 
-The creator economy is entering its next phase. Wave 1 was attention. Wave 2 was subscriptions. The next wave is creator-owned micro-economies. SignalLoop exists to power that shift.
+The creator economy is entering its next phase. Wave 1 was attention. Wave 2 was subscriptions. The next wave is circular creator economies — where value compounds through resale, upgrades, and secondary markets. SignalLoop exists to power that shift.
 
 ## The Future We're Building
 
-> "A world where creators don't just monetise content — they own culture, build community wealth, and create lasting economic ecosystems."
+> "A world where creators don't just monetise content — they build circular economies, own culture, build community wealth, and create lasting economic ecosystems where value compounds through resale, upgrades, and ongoing access."
 
 ---
 

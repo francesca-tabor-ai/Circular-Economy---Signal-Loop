@@ -16,7 +16,7 @@ const About: React.FC = () => {
             We built SignalLoop because the creator economy is still built on unstable income, disposable content, and algorithms that decide who gets seen and who gets paid.
           </p>
           <p>
-            Creators pour identity, creativity, and emotional labour into their work — but most platforms only reward volume and virality. We believe creators deserve something better: <span className="text-gray-950 font-medium">ownership of their audience economy.</span>
+            Creators pour identity, creativity, and emotional labour into their work — but most platforms only reward volume and virality. We believe creators deserve something better: <span className="text-gray-950 font-medium">a circular economy where value compounds through resale, upgrades, and ongoing access.</span>
           </p>
         </div>
       </section>
@@ -25,7 +25,7 @@ const About: React.FC = () => {
       <section className="bg-gray-50 p-16 rounded-[48px] border border-gray-100">
         <p className="text-[10px] font-bold text-gray-400 uppercase tracking-[0.3em] mb-6">Our Mission</p>
         <h3 className="text-3xl font-heading font-bold text-gray-950 tracking-tight leading-[1.3]">
-          To help creators turn identity, influence, and audience loyalty into predictable, compounding revenue — without sacrificing authenticity or creative freedom.
+          To help creators build circular economies where identity, influence, and audience loyalty turn into predictable, compounding revenue through resale, upgrades, and ongoing value — without sacrificing authenticity or creative freedom.
         </h3>
       </section>
 
@@ -62,7 +62,7 @@ const About: React.FC = () => {
           </div>
           <div className="md:w-2/3 space-y-8">
             <p className="text-2xl font-light text-gray-900 leading-[1.7]">
-              SignalLoop gives creators the infrastructure to build their own fan economy.
+              SignalLoop gives creators the infrastructure to build their own circular fan economy — where value compounds through resale, upgrades, and secondary markets.
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
               {[
@@ -86,13 +86,13 @@ const About: React.FC = () => {
         <div className="space-y-6">
           <h3 className="text-sm font-heading font-bold text-gray-950 uppercase tracking-widest">Who We Build For</h3>
           <p className="text-gray-500 leading-[1.7] font-normal">
-            We build for creators who already have an audience — and want to turn it into something sustainable. Creators who want predictable monthly income, deeper fan relationships, and ownership of their brand economy.
+            We build for creators who already have an audience — and want to turn it into a circular economy. Creators who want predictable monthly income, deeper fan relationships, and ownership of their brand economy through resale, upgrades, and ongoing value.
           </p>
         </div>
         <div className="space-y-6">
           <h3 className="text-sm font-heading font-bold text-gray-950 uppercase tracking-widest">Why Now</h3>
-          <p className="text-gray-500 leading-relaxed">
-            The creator economy is entering its next phase. Wave 1 was attention. Wave 2 was subscriptions. The next wave is creator-owned micro-economies. SignalLoop exists to power that shift.
+          <p className="text-gray-500 leading-[1.7] font-normal">
+            The creator economy is entering its next phase. Wave 1 was attention. Wave 2 was subscriptions. The next wave is circular creator economies — where value compounds through resale, upgrades, and secondary markets. SignalLoop exists to power that shift.
           </p>
         </div>
       </section>
@@ -103,7 +103,7 @@ const About: React.FC = () => {
           The future we're building
         </h3>
         <p className="text-xl text-gray-400 font-light max-w-2xl mx-auto leading-[1.7] italic">
-          "A world where creators don't just monetise content — they own culture, build community wealth, and create lasting economic ecosystems."
+          "A world where creators don't just monetise content — they build circular economies, own culture, build community wealth, and create lasting economic ecosystems where value compounds through resale, upgrades, and ongoing access."
         </p>
       </section>
     </div>
