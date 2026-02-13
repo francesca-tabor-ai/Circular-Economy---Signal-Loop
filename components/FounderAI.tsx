@@ -1,6 +1,6 @@
 
 import React, { useState, useRef, useEffect } from 'react';
-import { getFounderResponseStream } from '../services/geminiService';
+import { getFounderResponseStream, hasApiKey } from '../services/geminiService';
 import { ChatMessage, ViewType } from '../types';
 import { FOUNDER_IMAGE } from '../constants';
 
@@ -38,10 +38,13 @@ const STARTER_PROBES: Record<ViewType, string[]> = {
 };
 
 const FounderAI: React.FC<FounderAIProps> = ({ onClose, currentView }) => {
+  const apiKeyAvailable = hasApiKey();
   const [messages, setMessages] = useState<ChatMessage[]>([
     { 
       role: 'model', 
-      text: "I'm Adrian Kovač, founder of SignalLoop. My background is in systems reliability—I view creator economies as complex systems that need predictable memory. How can I help you architect a more stable lifecycle for your community today?" 
+      text: apiKeyAvailable 
+        ? "I'm Adrian Kovač, founder of SignalLoop. My background is in systems reliability—I view creator economies as complex systems that need predictable memory. How can I help you architect a more stable lifecycle for your community today?"
+        : "⚠️ Google API key is required to use this feature.\n\nPlease set your GEMINI_API_KEY in the .env.local file to enable Adrian's AI assistant."
     }
   ]);
   const [input, setInput] = useState('');
@@ -57,6 +60,15 @@ const FounderAI: React.FC<FounderAIProps> = ({ onClose, currentView }) => {
   const handleSend = async (textOverride?: string) => {
     const textToSend = textOverride || input;
     if (!textToSend.trim() || isLoading) return;
+
+    // Check if API key is available
+    if (!hasApiKey()) {
+      setMessages(prev => [...prev, { 
+        role: 'model', 
+        text: "⚠️ Google API key is required to use this feature.\n\nPlease set your GEMINI_API_KEY in the .env.local file to enable Adrian's AI assistant." 
+      }]);
+      return;
+    }
 
     const userMessage: ChatMessage = { role: 'user', text: textToSend };
     setMessages(prev => [...prev, userMessage]);
@@ -83,9 +95,16 @@ const FounderAI: React.FC<FounderAIProps> = ({ onClose, currentView }) => {
           return newMessages;
         });
       }
-    } catch (error) {
+    } catch (error: any) {
       console.error("Chat Error:", error);
-      setMessages(prev => [...prev, { role: 'model', text: "I'm having trouble connecting to my strategy modules. Let's try again in a moment." }]);
+      if (error.message === 'GOOGLE_API_KEY_REQUIRED') {
+        setMessages(prev => [...prev, { 
+          role: 'model', 
+          text: "⚠️ Google API key is required to use this feature.\n\nPlease set your GEMINI_API_KEY in the .env.local file to enable Adrian's AI assistant." 
+        }]);
+      } else {
+        setMessages(prev => [...prev, { role: 'model', text: "I'm having trouble connecting to my strategy modules. Let's try again in a moment." }]);
+      }
     } finally {
       setIsLoading(false);
     }

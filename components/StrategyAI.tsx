@@ -1,18 +1,35 @@
 
 import React, { useState } from 'react';
-import { getExperienceDropIdeas } from '../services/geminiService';
+import { getExperienceDropIdeas, hasApiKey } from '../services/geminiService';
 import { MOCK_CREATOR } from '../constants';
 
 const StrategyAI: React.FC = () => {
   const [isGenerating, setIsGenerating] = useState(false);
   const [ideas, setIdeas] = useState<any[] | null>(null);
+  const [error, setError] = useState<string | null>(null);
 
   const handleGenerate = async () => {
+    if (!hasApiKey()) {
+      setError('GOOGLE_API_KEY_REQUIRED');
+      return;
+    }
+
     setIsGenerating(true);
-    const context = `${MOCK_CREATOR.name} is a ${MOCK_CREATOR.niche} creator with ${MOCK_CREATOR.followers} followers. Focus on building identity scarcity and high ARPU.`;
-    const result = await getExperienceDropIdeas(context);
-    setIdeas(result);
-    setIsGenerating(false);
+    setError(null);
+    
+    try {
+      const context = `${MOCK_CREATOR.name} is a ${MOCK_CREATOR.niche} creator with ${MOCK_CREATOR.followers} followers. Focus on building identity scarcity and high ARPU.`;
+      const result = await getExperienceDropIdeas(context);
+      setIdeas(result);
+    } catch (err: any) {
+      if (err.message === 'GOOGLE_API_KEY_REQUIRED') {
+        setError('GOOGLE_API_KEY_REQUIRED');
+      } else {
+        setError('An error occurred while generating ideas. Please try again.');
+      }
+    } finally {
+      setIsGenerating(false);
+    }
   };
 
   return (
@@ -27,12 +44,41 @@ const StrategyAI: React.FC = () => {
         </p>
         <button 
           onClick={handleGenerate}
-          disabled={isGenerating}
+          disabled={isGenerating || !hasApiKey()}
           className="px-10 py-4 bg-gray-950 text-white disabled:bg-gray-100 disabled:text-gray-300 rounded-[20px] font-bold text-sm tracking-tight hover:bg-gray-800 transition-all shadow-xl shadow-gray-100"
         >
           {isGenerating ? 'Analyzing Cultural Leverage...' : 'Generate Loop Strategy'}
         </button>
       </div>
+
+      {error === 'GOOGLE_API_KEY_REQUIRED' && (
+        <div className="bg-yellow-50 border-2 border-yellow-200 rounded-2xl p-8 max-w-2xl mx-auto">
+          <div className="flex items-start gap-4">
+            <div className="text-2xl">⚠️</div>
+            <div className="flex-1">
+              <h3 className="font-heading font-bold text-gray-950 mb-2">Google API Key Required</h3>
+              <p className="text-gray-700 mb-4">
+                This feature requires a Google Gemini API key to function. Please set your <code className="bg-gray-100 px-2 py-1 rounded text-sm">GEMINI_API_KEY</code> in the <code className="bg-gray-100 px-2 py-1 rounded text-sm">.env.local</code> file.
+              </p>
+              <p className="text-sm text-gray-600">
+                The platform will continue to work without the API key, but AI-powered features like strategy generation will be unavailable.
+              </p>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {error && error !== 'GOOGLE_API_KEY_REQUIRED' && (
+        <div className="bg-red-50 border-2 border-red-200 rounded-2xl p-8 max-w-2xl mx-auto">
+          <div className="flex items-start gap-4">
+            <div className="text-2xl">❌</div>
+            <div className="flex-1">
+              <h3 className="font-heading font-bold text-gray-950 mb-2">Error</h3>
+              <p className="text-gray-700">{error}</p>
+            </div>
+          </div>
+        </div>
+      )}
 
       {ideas && (
         <div className="space-y-8 pb-20">

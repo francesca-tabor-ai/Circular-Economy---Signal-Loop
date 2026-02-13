@@ -1,10 +1,28 @@
 
 import { GoogleGenAI, Type } from "@google/genai";
 
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY || '' });
+const API_KEY = process.env.API_KEY || process.env.GEMINI_API_KEY || '';
+
+// Check if API key is available
+export const hasApiKey = (): boolean => {
+  return !!API_KEY && API_KEY.trim() !== '' && API_KEY !== 'your_gemini_api_key_here';
+};
+
+// Initialize AI only if API key exists
+const getAI = () => {
+  if (!hasApiKey()) {
+    throw new Error('GOOGLE_API_KEY_REQUIRED');
+  }
+  return new GoogleGenAI({ apiKey: API_KEY });
+};
 
 export const getExperienceDropIdeas = async (creatorContext: string) => {
   try {
+    if (!hasApiKey()) {
+      throw new Error('GOOGLE_API_KEY_REQUIRED');
+    }
+    
+    const ai = getAI();
     const response = await ai.models.generateContent({
       model: 'gemini-3-flash-preview',
       contents: `Generate 3 creative "Experience Drop" ideas for a creator with the following profile: ${creatorContext}. 
@@ -26,7 +44,10 @@ export const getExperienceDropIdeas = async (creatorContext: string) => {
       }
     });
     return JSON.parse(response.text);
-  } catch (error) {
+  } catch (error: any) {
+    if (error.message === 'GOOGLE_API_KEY_REQUIRED') {
+      throw error;
+    }
     console.error("Gemini Error:", error);
     return null;
   }
@@ -54,6 +75,11 @@ Scope:
 Keep responses concise and structurally clear.`;
 
 export const getFounderResponseStream = async (history: { role: string, parts: { text: string }[] }[]) => {
+  if (!hasApiKey()) {
+    throw new Error('GOOGLE_API_KEY_REQUIRED');
+  }
+  
+  const ai = getAI();
   const chat = ai.chats.create({
     model: 'gemini-3-pro-preview',
     config: {
