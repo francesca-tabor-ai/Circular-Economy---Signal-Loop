@@ -6,48 +6,187 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>SignalLoop | Creator Economy Reimagined</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
       :root {
+        /* Color System - Minimal + Expressive */
+        --color-black: #0a0a0a; /* Near-black for primary text */
+        --color-white: #ffffff; /* Dominant background */
+        --color-grey-50: #f9fafb; /* Lightest grey */
+        --color-grey-100: #f3f4f6; /* UI structure, dividers */
+        --color-grey-200: #e5e7eb; /* Borders */
+        --color-grey-300: #d1d5db; /* Subtle borders */
+        --color-grey-400: #9ca3af; /* Secondary text */
+        --color-grey-500: #6b7280; /* Muted text */
+        --color-grey-600: #4b5563; /* Body text secondary */
+        --color-grey-700: #374151; /* Darker text */
+        --color-grey-900: #111827; /* Near-black alternative */
+        
+        /* Accent Gradient - Used sparingly */
         --accent-gradient: linear-gradient(135deg, #facc15 0%, #10b981 33%, #06b6d4 66%, #3b82f6 100%);
       }
+      
+      /* Typography System - Humanist Sans-Serif */
       body {
-        font-family: 'Inter', sans-serif;
-        background-color: #ffffff;
-        color: #111827;
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        background-color: var(--color-white);
+        color: var(--color-black);
         -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        font-feature-settings: 'kern' 1, 'liga' 1;
+        letter-spacing: -0.01em;
       }
+      
+      /* Headlines - Large, bold, confident, sentence-case */
       .font-heading {
-        font-family: 'Plus Jakarta Sans', sans-serif;
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        font-weight: 700;
+        letter-spacing: -0.02em;
+        line-height: 1.1;
       }
+      
+      /* Body text - Regular/light weights, generous line height */
+      body, p, span, div {
+        line-height: 1.6;
+        font-weight: 400;
+      }
+      
+      /* UI & Numbers - Clear, neutral, optimized for data */
+      .font-ui, .font-mono {
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        font-weight: 500;
+        letter-spacing: -0.01em;
+      }
+      
+      /* Utility Classes */
       .bg-accent-gradient {
         background: var(--accent-gradient);
       }
+      
       .text-accent-gradient {
         background: var(--accent-gradient);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
+        background-clip: text;
       }
+      
+      /* Scrollbar - Subtle and minimal */
       ::-webkit-scrollbar {
         width: 6px;
       }
       ::-webkit-scrollbar-track {
-        background: #f9fafb;
+        background: var(--color-grey-50);
       }
       ::-webkit-scrollbar-thumb {
-        background: #e5e7eb;
+        background: var(--color-grey-300);
         border-radius: 10px;
       }
       ::-webkit-scrollbar-thumb:hover {
-        background: #d1d5db;
+        background: var(--color-grey-400);
       }
+      
+      /* Card Shadow - Subtle depth */
       .card-shadow {
-        box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05), 0 1px 2px 0 rgba(0, 0, 0, 0.02);
+        box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.04), 0 1px 2px 0 rgba(0, 0, 0, 0.02);
       }
+      
+      /* Glass effect - Calm and refined */
       .glass {
-        background: rgba(255, 255, 255, 0.8);
-        backdrop-filter: blur(12px);
-        -webkit-backdrop-filter: blur(12px);
+        background: rgba(255, 255, 255, 0.85);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+      }
+      
+      /* Selection - Subtle accent */
+      ::selection {
+        background-color: rgba(16, 185, 129, 0.15);
+        color: var(--color-black);
+      }
+      
+      /* Smooth scrolling */
+      html {
+        scroll-behavior: smooth;
+      }
+      
+      /* Micro-interaction animations */
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+      
+      @keyframes slideInFromBottom {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      
+      @keyframes slideInFromLeft {
+        from {
+          opacity: 0;
+          transform: translateX(-20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+      
+      .animate-in {
+        animation-fill-mode: both;
+      }
+      
+      .fade-in {
+        animation: fadeIn 0.5s ease-out;
+      }
+      
+      .slide-in-from-bottom-4 {
+        animation: slideInFromBottom 0.5s ease-out;
+      }
+      
+      .slide-in-from-left-4 {
+        animation: slideInFromLeft 0.3s ease-out;
+      }
+      
+      /* Duration utilities */
+      .duration-300 {
+        animation-duration: 300ms;
+      }
+      
+      .duration-500 {
+        animation-duration: 500ms;
+      }
+      
+      /* Hover micro-interactions */
+      .hover-lift {
+        transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
+      }
+      
+      .hover-lift:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      }
+      
+      /* Pulse animation for live indicators */
+      @keyframes pulse {
+        0%, 100% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0.5;
+        }
+      }
+      
+      .animate-pulse {
+        animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
       }
     </style>
   <script type="importmap">

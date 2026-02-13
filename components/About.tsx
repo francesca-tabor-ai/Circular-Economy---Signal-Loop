@@ -7,11 +7,11 @@ const About: React.FC = () => {
       {/* Hero Section */}
       <section className="space-y-8">
         <div className="w-12 h-1 bg-accent-gradient rounded-full"></div>
-        <h2 className="text-6xl font-heading font-extrabold text-gray-950 tracking-tighter leading-tight">
+        <h2 className="text-6xl font-heading font-bold text-gray-950 tracking-tight leading-[1.1]">
           Culture used to move in moments.<br />
           <span className="text-gray-400">Now it moves in communities.</span>
         </h2>
-        <div className="max-w-2xl space-y-6 text-xl text-gray-500 font-light leading-relaxed">
+        <div className="max-w-2xl space-y-6 text-xl text-gray-500 font-light leading-[1.7]">
           <p>
             We built SignalLoop because the creator economy is still built on unstable income, disposable content, and algorithms that decide who gets seen and who gets paid.
           </p>
@@ -24,7 +24,7 @@ const About: React.FC = () => {
       {/* Mission */}
       <section className="bg-gray-50 p-16 rounded-[48px] border border-gray-100">
         <p className="text-[10px] font-bold text-gray-400 uppercase tracking-[0.3em] mb-6">Our Mission</p>
-        <h3 className="text-3xl font-heading font-bold text-gray-950 tracking-tight leading-snug">
+        <h3 className="text-3xl font-heading font-bold text-gray-950 tracking-tight leading-[1.3]">
           To help creators turn identity, influence, and audience loyalty into predictable, compounding revenue — without sacrificing authenticity or creative freedom.
         </h3>
       </section>
@@ -35,8 +35,8 @@ const About: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
           <div className="space-y-4">
             <h4 className="text-lg font-heading font-bold text-gray-950">Identity is the new product</h4>
-            <p className="text-gray-500 text-sm leading-relaxed">
-              The strongest creator businesses aren’t built on content volume. They’re built on trust, personality, and cultural influence.
+            <p className="text-gray-500 text-sm leading-[1.7] font-normal">
+              The strongest creator businesses aren't built on content volume. They're built on trust, personality, and cultural influence.
             </p>
           </div>
           <div className="space-y-4">
@@ -61,7 +61,7 @@ const About: React.FC = () => {
             <h3 className="text-sm font-heading font-bold text-gray-950 uppercase tracking-widest">What We Do</h3>
           </div>
           <div className="md:w-2/3 space-y-8">
-            <p className="text-2xl font-light text-gray-900 leading-relaxed">
+            <p className="text-2xl font-light text-gray-900 leading-[1.7]">
               SignalLoop gives creators the infrastructure to build their own fan economy.
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
@@ -85,7 +85,7 @@ const About: React.FC = () => {
       <section className="grid grid-cols-1 md:grid-cols-2 gap-24 py-12">
         <div className="space-y-6">
           <h3 className="text-sm font-heading font-bold text-gray-950 uppercase tracking-widest">Who We Build For</h3>
-          <p className="text-gray-500 leading-relaxed">
+          <p className="text-gray-500 leading-[1.7] font-normal">
             We build for creators who already have an audience — and want to turn it into something sustainable. Creators who want predictable monthly income, deeper fan relationships, and ownership of their brand economy.
           </p>
         </div>
@@ -99,11 +99,11 @@ const About: React.FC = () => {
 
       {/* Footer Quote */}
       <section className="text-center py-24 border-t border-gray-100">
-        <h3 className="text-4xl font-heading font-extrabold text-gray-950 tracking-tighter mb-4">
-          The Future We’re Building
+        <h3 className="text-4xl font-heading font-bold text-gray-950 tracking-tight mb-4 leading-[1.2]">
+          The future we're building
         </h3>
-        <p className="text-xl text-gray-400 font-light max-w-2xl mx-auto leading-relaxed italic">
-          "A world where creators don’t just monetise content — they own culture, build community wealth, and create lasting economic ecosystems."
+        <p className="text-xl text-gray-400 font-light max-w-2xl mx-auto leading-[1.7] italic">
+          "A world where creators don't just monetise content — they own culture, build community wealth, and create lasting economic ecosystems."
         </p>
       </section>
     </div>

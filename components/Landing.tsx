@@ -8,50 +8,64 @@ interface LandingProps {
 const Landing: React.FC<LandingProps> = ({ onNavigate }) => {
   return (
     <div className="w-full">
-      {/* Hero Section */}
-      <section className="max-w-6xl mx-auto px-6 py-20 md:py-32">
-        <div className="text-center space-y-6 mb-12">
-          <h1 className="font-heading text-5xl md:text-7xl font-extrabold text-gray-950 tracking-tight leading-tight">
-            Turn Your Audience Into<br />Predictable Monthly Revenue
-          </h1>
-          <p className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Stop relying on algorithms, brand deals, and one-off launches.<br />
-            SignalLoop helps you build a fan economy that compounds over time.
-          </p>
-          <p className="text-sm text-gray-500 font-medium">
-            Built by engineers who study how systems fail — and how to make them stable.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-6">
-            <button 
-              onClick={() => onNavigate?.(ViewType.CREATOR_DASHBOARD)}
-              className="bg-gray-950 hover:bg-gray-800 text-white px-8 py-4 rounded-full text-base font-bold tracking-tight shadow-lg transition-all hover:scale-105"
-            >
-              Start Building Your Revenue Loop
-            </button>
-            <button 
-              onClick={() => onNavigate?.(ViewType.CREATOR_DASHBOARD)}
-              className="border-2 border-gray-200 hover:border-gray-300 text-gray-900 px-8 py-4 rounded-full text-base font-bold tracking-tight transition-all hover:bg-gray-50"
-            >
-              See How It Works
-            </button>
-          </div>
-        </div>
+      {/* Hero Section with Background Image */}
+      <section className="relative w-full min-h-screen flex items-center justify-center">
+        {/* Background Image */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage: 'url(https://static.vecteezy.com/system/resources/previews/055/504/802/large_2x/giraffe-silhouette-at-sunset-in-african-savanna-golden-hour-landscapegraphy-free-photo.jpeg)'
+          }}
+        />
         
-        {/* Trust Strip */}
-        <div className="mt-16 pt-8 border-t border-gray-100">
-          <p className="text-center text-sm text-gray-500 font-medium">
-            Trusted by creators building sustainable income — not chasing viral moments.
-          </p>
+        {/* Dark Overlay */}
+        <div className="absolute inset-0 bg-black/60" />
+        
+        {/* Content */}
+        <div className="relative z-10 max-w-6xl mx-auto px-6 py-20 md:py-32 w-full">
+          <div className="text-center space-y-6 mb-12">
+            <h1 className="font-heading text-5xl md:text-7xl font-bold text-white tracking-tight leading-[1.1]">
+              Turn your audience into<br />predictable monthly revenue
+            </h1>
+            <p className="text-xl md:text-2xl text-white/90 max-w-3xl mx-auto leading-[1.7] font-light">
+              Stop relying on algorithms, brand deals, and one-off launches.<br />
+              SignalLoop helps you build a fan economy that compounds over time.
+            </p>
+            <p className="text-sm text-white/80 font-normal leading-relaxed">
+              Built by engineers who study how systems fail — and how to make them stable.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-6">
+              <button 
+                onClick={() => onNavigate?.(ViewType.CREATOR_DASHBOARD)}
+                className="bg-white hover:bg-gray-100 text-gray-950 px-8 py-4 rounded-full text-base font-bold tracking-tight shadow-lg transition-all hover:scale-105"
+              >
+                Start Building Your Revenue Loop
+              </button>
+              <button 
+                onClick={() => onNavigate?.(ViewType.CREATOR_DASHBOARD)}
+                className="border-2 border-white/30 hover:border-white/50 text-white px-8 py-4 rounded-full text-base font-bold tracking-tight transition-all hover:bg-white/10 backdrop-blur-sm"
+              >
+                See How It Works
+              </button>
+            </div>
+          </div>
+          
+          {/* Trust Strip */}
+          <div className="mt-16 pt-8 border-t border-white/20">
+            <p className="text-center text-sm text-white/80 font-medium">
+              Trusted by creators building sustainable income — not chasing viral moments.
+            </p>
+          </div>
         </div>
       </section>
 
       {/* Problem Section */}
       <section className="bg-gray-50 py-20">
         <div className="max-w-6xl mx-auto px-6">
-          <h2 className="font-heading text-3xl md:text-4xl font-bold text-gray-950 mb-4">
-            The Creator Economy Has a Stability Problem
+          <h2 className="font-heading text-3xl md:text-4xl font-bold text-gray-950 mb-6 leading-[1.2]">
+            The creator economy has a stability problem
           </h2>
-          <p className="text-lg text-gray-600 mb-12 max-w-3xl">
+          <p className="text-lg text-gray-600 mb-12 max-w-3xl leading-[1.7] font-normal">
             Most creator income is built on systems designed for attention — not reliability.
           </p>
           
@@ -83,10 +97,10 @@ const Landing: React.FC<LandingProps> = ({ onNavigate }) => {
       {/* Solution Section */}
       <section className="py-20">
         <div className="max-w-6xl mx-auto px-6">
-          <h2 className="font-heading text-3xl md:text-4xl font-bold text-gray-950 mb-4">
-            SignalLoop Builds Creator Economies That Behave Like Reliable Systems
+          <h2 className="font-heading text-3xl md:text-4xl font-bold text-gray-950 mb-6 leading-[1.2]">
+            SignalLoop builds creator economies that behave like reliable systems
           </h2>
-          <p className="text-xl text-gray-600 mb-8 max-w-3xl">
+          <p className="text-xl text-gray-600 mb-8 max-w-3xl leading-[1.7] font-normal">
             Instead of monetising content once, SignalLoop helps you monetise relationship, identity, and access — continuously.
           </p>
           <div className="bg-emerald-50 border-2 border-emerald-200 p-8 rounded-2xl">
@@ -101,16 +115,16 @@ const Landing: React.FC<LandingProps> = ({ onNavigate }) => {
       {/* How It Works Section */}
       <section className="bg-gray-50 py-20">
         <div className="max-w-6xl mx-auto px-6">
-          <h2 className="font-heading text-3xl md:text-4xl font-bold text-gray-950 mb-12 text-center">
-            How It Works
+          <h2 className="font-heading text-3xl md:text-4xl font-bold text-gray-950 mb-12 text-center leading-[1.2]">
+            How it works
           </h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             <div className="bg-white border border-gray-200 p-8 rounded-2xl">
               <div className="text-4xl font-bold text-gray-300 mb-4">1</div>
-              <h3 className="font-heading text-xl font-bold text-gray-950 mb-3">
-                Build Identity Membership Tiers
+              <h3 className="font-heading text-xl font-bold text-gray-950 mb-3 leading-[1.3]">
+                Build identity membership tiers
               </h3>
-              <p className="text-gray-600 text-sm leading-relaxed">
+              <p className="text-gray-600 text-sm leading-[1.7] font-normal">
                 Turn audience loyalty into recurring revenue through status-based membership.
               </p>
             </div>
@@ -148,15 +162,15 @@ const Landing: React.FC<LandingProps> = ({ onNavigate }) => {
       {/* Core Value Section */}
       <section className="py-20">
         <div className="max-w-6xl mx-auto px-6">
-          <h2 className="font-heading text-3xl md:text-4xl font-bold text-gray-950 mb-12 text-center">
-            Why Creators Move to SignalLoop
+          <h2 className="font-heading text-3xl md:text-4xl font-bold text-gray-950 mb-12 text-center leading-[1.2]">
+            Why creators move to SignalLoop
           </h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             <div className="text-center p-6">
-              <h3 className="font-heading text-xl font-bold text-gray-950 mb-3">
-                Predictable Monthly Revenue
+              <h3 className="font-heading text-xl font-bold text-gray-950 mb-3 leading-[1.3]">
+                Predictable monthly revenue
               </h3>
-              <p className="text-gray-600 text-sm">
+              <p className="text-gray-600 text-sm leading-[1.7] font-normal">
                 Build income you can forecast — not hope for.
               </p>
             </div>
@@ -191,10 +205,10 @@ const Landing: React.FC<LandingProps> = ({ onNavigate }) => {
       {/* Founder Section */}
       <section className="bg-gray-50 py-20">
         <div className="max-w-6xl mx-auto px-6">
-          <h2 className="font-heading text-3xl md:text-4xl font-bold text-gray-950 mb-6">
-            Built With Systems Thinking — Not Growth Hacks
+          <h2 className="font-heading text-3xl md:text-4xl font-bold text-gray-950 mb-6 leading-[1.2]">
+            Built with systems thinking — not growth hacks
           </h2>
-          <p className="text-lg text-gray-700 mb-8 max-w-4xl leading-relaxed">
+          <p className="text-lg text-gray-700 mb-8 max-w-4xl leading-[1.7] font-normal">
             SignalLoop was founded by Adrian Kovač, a systems reliability engineer who worked in environments where failure isn't an option — healthcare systems, regulated manufacturing, and lifecycle traceability programs.
           </p>
           <div className="bg-white border-2 border-gray-200 p-8 rounded-2xl">
@@ -214,8 +228,8 @@ const Landing: React.FC<LandingProps> = ({ onNavigate }) => {
       {/* Social Proof Section */}
       <section className="py-20">
         <div className="max-w-6xl mx-auto px-6">
-          <h2 className="font-heading text-3xl md:text-4xl font-bold text-gray-950 mb-12 text-center">
-            Creators on SignalLoop report:
+          <h2 className="font-heading text-3xl md:text-4xl font-bold text-gray-950 mb-12 text-center leading-[1.2]">
+            Creators on SignalLoop report
           </h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             <div className="bg-emerald-50 border border-emerald-200 p-6 rounded-2xl text-center">
@@ -239,10 +253,10 @@ const Landing: React.FC<LandingProps> = ({ onNavigate }) => {
         <div className="max-w-6xl mx-auto px-6">
           <div className="grid md:grid-cols-2 gap-12">
             <div>
-              <h2 className="font-heading text-3xl font-bold text-gray-950 mb-6">
-                Who This Is For
+              <h2 className="font-heading text-3xl font-bold text-gray-950 mb-6 leading-[1.2]">
+                Who this is for
               </h2>
-              <p className="text-lg text-gray-700 mb-6">
+              <p className="text-lg text-gray-700 mb-6 leading-[1.7] font-normal">
                 SignalLoop is built for creators who:
               </p>
               <ul className="space-y-3">
@@ -255,10 +269,10 @@ const Landing: React.FC<LandingProps> = ({ onNavigate }) => {
               </ul>
             </div>
             <div>
-              <h2 className="font-heading text-3xl font-bold text-gray-950 mb-6">
-                Who This Is Not For
+              <h2 className="font-heading text-3xl font-bold text-gray-950 mb-6 leading-[1.2]">
+                Who this is not for
               </h2>
-              <p className="text-lg text-gray-700 mb-6">
+              <p className="text-lg text-gray-700 mb-6 leading-[1.7] font-normal">
                 If you want:
               </p>
               <ul className="space-y-3">
@@ -280,10 +294,10 @@ const Landing: React.FC<LandingProps> = ({ onNavigate }) => {
       {/* Platform AI Section */}
       <section className="py-20">
         <div className="max-w-6xl mx-auto px-6">
-          <h2 className="font-heading text-3xl md:text-4xl font-bold text-gray-950 mb-6">
-            Meet Adrian — Founder AI Assistant
+          <h2 className="font-heading text-3xl md:text-4xl font-bold text-gray-950 mb-6 leading-[1.2]">
+            Meet Adrian — founder AI assistant
           </h2>
-          <p className="text-lg text-gray-700 mb-8 max-w-3xl">
+          <p className="text-lg text-gray-700 mb-8 max-w-3xl leading-[1.7] font-normal">
             Every creator on SignalLoop gets access to Adrian, our founder AI assistant.
           </p>
           <div className="bg-gray-950 text-white p-8 rounded-2xl">
@@ -304,10 +318,10 @@ const Landing: React.FC<LandingProps> = ({ onNavigate }) => {
       {/* Final CTA Section */}
       <section className="bg-gray-950 text-white py-20">
         <div className="max-w-4xl mx-auto px-6 text-center">
-          <h2 className="font-heading text-4xl md:text-5xl font-bold mb-6">
-            Build a Creator Economy That Doesn't Break
+          <h2 className="font-heading text-4xl md:text-5xl font-bold mb-6 leading-[1.2]">
+            Build a creator economy that doesn't break
           </h2>
-          <p className="text-xl text-gray-300 mb-8">
+          <p className="text-xl text-gray-300 mb-8 leading-[1.7] font-normal">
             Your audience already trusts you.<br />
             SignalLoop helps you build an economy that earns from that trust — month after month.
           </p>

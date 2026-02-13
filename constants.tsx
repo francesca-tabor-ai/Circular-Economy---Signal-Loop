@@ -2,12 +2,27 @@
 import React from 'react';
 
 export const COLORS = {
-  primary: '#111827',
-  secondary: '#4B5563',
+  // Core Palette - Minimal + Expressive
+  black: '#0a0a0a', // Near-black primary text
+  white: '#ffffff', // Dominant background
+  // Cool Greys - UI structure, dividers, secondary text
+  grey50: '#f9fafb',
+  grey100: '#f3f4f6', // UI structure, dividers
+  grey200: '#e5e7eb', // Borders
+  grey300: '#d1d5db', // Subtle borders
+  grey400: '#9ca3af', // Secondary text
+  grey500: '#6b7280', // Muted text
+  grey600: '#4b5563', // Body text secondary
+  grey700: '#374151', // Darker text
+  grey900: '#111827', // Near-black alternative
+  // Accent Gradient - Used sparingly
   accent: 'linear-gradient(135deg, #facc15 0%, #10b981 33%, #06b6d4 66%, #3b82f6 100%)',
-  bg: '#FFFFFF',
-  card: '#FFFFFF',
-  border: '#F3F4F6'
+  // Legacy support
+  primary: '#0a0a0a',
+  secondary: '#4b5563',
+  bg: '#ffffff',
+  card: '#ffffff',
+  border: '#f3f4f6'
 };
 
 export const MOCK_CREATOR = {
